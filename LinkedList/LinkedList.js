@@ -30,4 +30,38 @@ class SingleLinkList {
     }
     return currentNode
   }
+  
+  remove(position) {
+    let currentNode = this.head,
+      length = this._length,
+      count = 0,
+      message = {fail: "No Node To Delete!!"},
+      beforeToDelete = null,
+      nodeToDelete = null,
+      deletedNode = null;
+    
+    if (position < 0 || position > length) {
+      throw new Error(message.fail)
+    }
+    
+    if (position === 1) {
+      this.head = currentNode.next;
+      deletedNode = currentNode;
+      currentNode = null;
+      this._length--;
+    }
+    
+    while (count < position) {
+      beforeToDelete = currentNode;
+      nodeToDelete = currentNode.next;
+      count++
+    }
+    
+    beforeToDelete.next = nodeToDelete.next;
+    deletedNode = nodeToDelete;
+    nodeToDelete = null
+    this._length--
+    
+    return deletedNode
+  }
 }
