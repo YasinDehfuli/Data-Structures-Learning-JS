@@ -1,3 +1,5 @@
+// O(n) fibonacci algorithm
+
 function fibonacci(n) {
   let a = 0, b = 1, temp;
   let fibSq = [a];
@@ -12,6 +14,6 @@ function fibonacci(n) {
   return fibSq;
 }
 
-let count = 100;
-let square = fibonacci(count);
+const count = 100;
+const square = fibonacci(count);
 console.log(square.join(", "));
